@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="sidebar">
+        <div class="sections">
+          <p class="num">1</p>
+          <div class="sections-elements">
+            <p>STEP 1</p>
+          <h5 id="info">YOUR INFO</h5>
+          </div>
+          
+        </div>
+        <div class="sections">
+          <p class="num">2</p>
+          <div class="sections-elements">
+            <p>STEP 2</p>
+          <h5 id="selection">SELECTION PLAN</h5>
+          </div>
+          
+        </div>
+        <div class="sections">
+          <p class="num">3</p>
+          <div class="sections-elements">
+            <p>STEP 3</p>
+          <h5 id="add-ons">ADD-ONS</h5>
+          </div>
+          
+        </div>
+        <div class="sections">
+          <p class="num">4</p>
+          <div class="sections-elements">
+            <p>STEP 4</p>
+          <h5 id="summary">SUMMARY</h5>
+          </div>
+          
+        </div>
+      </div>
+      <div id="form-area">
+        <div id = "info-section" class="f-area">
+          <h2>Personal Info</h2>
+          <p>Please provide your name, email address and phone number.</p>
+          <form class="personal-info">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Afolabi Adeoluwa">
+            
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="youremail@gmail.com">
+  
+            <label for="phone">phone</label>
+            <input type="email" id="phone" placeholder="+234|">
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="app.js"></script>
+  </body>
+</html>
