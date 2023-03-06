@@ -183,7 +183,7 @@ addOn.addEventListener("click", () => {
   cardOne.appendChild(firstAddOnTexts)
 
   // Create the heading for the first card
-  let firstAddOnHead = document.createElement('h3')
+  let firstAddOnHead = document.createElement('h4')
   firstAddOnHead.textContent = "Online Service"
   firstAddOnTexts.appendChild(firstAddOnHead)
 
@@ -216,7 +216,7 @@ addOn.addEventListener("click", () => {
   cardTwo.appendChild(secondAddOnTexts)
 
   // Create the heading for the Second card
-  let secondAddOnHead = document.createElement('h3')
+  let secondAddOnHead = document.createElement('h4')
   secondAddOnHead.textContent = "Larger storage"
   secondAddOnTexts.appendChild(secondAddOnHead)
 
@@ -240,7 +240,16 @@ addOn.addEventListener("click", () => {
   // create the third addOn checkbox
   let thirdCheckBox = document.createElement("input")
   thirdCheckBox.type = "checkbox"
+  thirdCheckBox.className = "checkBox"
+
+  
+  
   cardThree.appendChild(thirdCheckBox)
+  // if(thirdCheckBox.checked){
+  //   alert("helooo")
+  // }else{
+  //   return
+  // }
 
   // Create the text component for the third addOn
   let thirdAddOnTexts = document.createElement('div')
@@ -248,7 +257,7 @@ addOn.addEventListener("click", () => {
   cardThree.appendChild(thirdAddOnTexts)
 
   // Create the heading for the third card
-  let thirdAddOnHead = document.createElement('h3')
+  let thirdAddOnHead = document.createElement('h4')
   thirdAddOnHead.textContent = "Larger storage"
   thirdAddOnTexts.appendChild(thirdAddOnHead)
 

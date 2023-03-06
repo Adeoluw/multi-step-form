@@ -171,15 +171,25 @@ main{
 .addon-card{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    border: 1px solid hsl(243, 100%, 62%);
     width: 453px;
     margin-top: 20px;
     height: 75px;
     padding: 0 20px;
+    border-radius: 5px;
 }
 
 .addon-texts{
-    line-height: 10px;
+    line-height: 5px;
     text-align: left;
     margin-right: 90px;
+}
+
+.addon-texts h4{
+    color: hsl(213, 96%, 18%);
+    line-height: 2px;
+}
+
+.addon-texts p{
+    color: hsl(231, 11%, 63%);
 }
