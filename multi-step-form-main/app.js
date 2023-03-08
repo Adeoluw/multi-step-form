@@ -15,6 +15,9 @@ const selectionCon = document.createElement("div");
 
 const addOnCon = document.createElement("div")
 
+const summaryCon = document.createElement("div")
+
+
 
 info.addEventListener("click", () => {
   infoSection.className = "add-info-visibility";
@@ -176,6 +179,7 @@ addOn.addEventListener("click", () => {
   let firstCheckBox = document.createElement("input")
   firstCheckBox.type = "checkbox"
   cardOne.appendChild(firstCheckBox)
+  firstCheckBox.className = "checkBox"
 
   // Create the text component for the first addOn
   let firstAddOnTexts = document.createElement('div')
@@ -209,6 +213,8 @@ addOn.addEventListener("click", () => {
   let secondCheckBox = document.createElement("input")
   secondCheckBox.type = "checkbox"
   cardTwo.appendChild(secondCheckBox)
+  secondCheckBox.className = "checkBox"
+
 
   // Create the text component for the second addOn
   let secondAddOnTexts = document.createElement('div')
@@ -245,11 +251,6 @@ addOn.addEventListener("click", () => {
   
   
   cardThree.appendChild(thirdCheckBox)
-  // if(thirdCheckBox.checked){
-  //   alert("helooo")
-  // }else{
-  //   return
-  // }
 
   // Create the text component for the third addOn
   let thirdAddOnTexts = document.createElement('div')
@@ -286,3 +287,21 @@ addOn.addEventListener("click", () => {
 
 
 });
+
+// Creating the section for summary
+
+let hasSummaryEventOccurred = false
+
+summary.addEventListener("click", () => {
+    if (!hasAddOnEventOccurred){
+    addOnCon.className = "remove-addon-visibility";
+    infoSection.className = "remove-info-visibility";
+    selectionCon.className = "remove-selection-visibility";
+    summaryCon.className = "add-addon-visibility"
+  
+    container.appendChild(summaryCon);
+
+    
+  
+}
+})
