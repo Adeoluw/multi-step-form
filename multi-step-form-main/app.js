@@ -132,6 +132,8 @@ selection.addEventListener("click", function selectPlan() {
   infoSection.className = "remove-info-visibility";
   selectionCon.className = "add-selection-visibility";
   addOnCon.className = "remove-addon-visibility"
+  summaryCon.className = "remove-selection-visibility"
+
   }
 
   console.log(hasSelectionEventOccurred)
@@ -148,6 +150,8 @@ addOn.addEventListener("click", () => {
   addOnCon.className = "add-addon-visibility"
   infoSection.className = "remove-info-visibility";
   selectionCon.className = "remove-selection-visibility";
+  summaryCon.className = "remove-selection-visibility"
+
 
   container.appendChild(addOnCon);
 
@@ -282,6 +286,7 @@ addOn.addEventListener("click", () => {
     addOnCon.className = "add-addon-visibility"
     infoSection.className = "remove-info-visibility";
     selectionCon.className = "remove-selection-visibility";
+    summaryCon.className = "remove-selection-visibility"
   }
   // 
 
@@ -293,15 +298,33 @@ addOn.addEventListener("click", () => {
 let hasSummaryEventOccurred = false
 
 summary.addEventListener("click", () => {
-    if (!hasAddOnEventOccurred){
+    if (!hasSummaryEventOccurred){
     addOnCon.className = "remove-addon-visibility";
     infoSection.className = "remove-info-visibility";
     selectionCon.className = "remove-selection-visibility";
     summaryCon.className = "add-addon-visibility"
   
     container.appendChild(summaryCon);
-
     
+    // creating the Heading for the summary section
+    let summaryHeading = document.createElement("h2");
+    summaryHeading.textContent = "Finishing Up";
+    summaryHeading.className = "summary-head";
+    summaryCon.appendChild(summaryHeading);
+
+    // creating the paragraph(sub-heading) for the summary section
+    let summaryPara = document.createElement("p");
+    summaryPara.textContent = "Double-check everything looks OK before confirming"
+    summaryPara.className = "summary-para"
+    summaryCon.appendChild(summaryPara)
+
+    hasSummaryEventOccurred = true
   
+    if(hasSummaryEventOccurred){
+      addOnCon.className = "remove-addon-visibility";
+    infoSection.className = "remove-info-visibility";
+    selectionCon.className = "remove-selection-visibility";
+    summaryCon.className = "add-addon-visibility"
+    }
 }
 })
