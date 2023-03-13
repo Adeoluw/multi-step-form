@@ -17,12 +17,15 @@ const addOnCon = document.createElement("div")
 
 const summaryCon = document.createElement("div")
 
+// create a variable to store the selected plan so that we can use the value in the summary
+let planSelected = ""
 
 
 info.addEventListener("click", () => {
   infoSection.className = "add-info-visibility";
   selectionCon.className = "remove-selection-visibility";
   addOnCon.className = "remove-selection-visibility"
+  summaryCon.className = "remove-selection-visibility"
 
   return;
 });
@@ -72,6 +75,15 @@ selection.addEventListener("click", function selectPlan() {
   let priceOne = document.createElement("p");
   priceOne.textContent = "$9/mo";
   cardOne.appendChild(priceOne);
+  // give the first selection an id
+  cardOne.id = "Arcade"
+
+  // Create an evenlistener for cardOne so that we can set the value of planSelected
+  cardOne.addEventListener("click", () =>{
+    // planSelected = document.getElementById("Arcade")
+    planSelected = "Arcade"
+    console.log(planSelected)
+  })
 
   // apprnd the cardone to the planCon
   planCon.appendChild(cardOne);
@@ -88,6 +100,8 @@ selection.addEventListener("click", function selectPlan() {
   let priceTwo = document.createElement("p");
   priceTwo.textContent = "$9/mo";
   cardTwo.appendChild(priceTwo);
+  // give the second selection an id
+  cardTwo.id = "Advanced"
 
   // append the cardTwo to the planCon
   planCon.appendChild(cardTwo);
@@ -104,9 +118,13 @@ selection.addEventListener("click", function selectPlan() {
   let priceThree = document.createElement("p");
   priceThree.textContent = "$9/mo";
   cardThree.appendChild(priceThree);
+  // give the third selection an id
+  cardThree.id = "Pro"
 
   // apprnd the cardone to the planCon
   planCon.appendChild(cardThree);
+
+
 
 
   // create the monthly/yearly subscribtion section
@@ -136,7 +154,6 @@ selection.addEventListener("click", function selectPlan() {
 
   }
 
-  console.log(hasSelectionEventOccurred)
 });
 
 
@@ -318,13 +335,22 @@ summary.addEventListener("click", () => {
     summaryPara.className = "summary-para"
     summaryCon.appendChild(summaryPara)
 
+    // creating the div for the total cost 
+      let costCon = document.createElement('div')
+      costCon.className = "cost-con"
+      summaryCon.appendChild(costCon)
+
+
+
+
     hasSummaryEventOccurred = true
   
-    if(hasSummaryEventOccurred){
-      addOnCon.className = "remove-addon-visibility";
-    infoSection.className = "remove-info-visibility";
-    selectionCon.className = "remove-selection-visibility";
-    summaryCon.className = "add-addon-visibility"
-    }
+   
+}
+if(hasSummaryEventOccurred){
+  addOnCon.className = "remove-addon-visibility";
+infoSection.className = "remove-info-visibility";
+selectionCon.className = "remove-selection-visibility";
+summaryCon.className = "add-addon-visibility"
 }
 })
