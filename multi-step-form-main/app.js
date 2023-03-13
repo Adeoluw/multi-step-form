@@ -77,6 +77,7 @@ selection.addEventListener("click", function selectPlan() {
   cardOne.appendChild(priceOne);
   // give the first selection an id
   cardOne.id = "Arcade"
+  planSelected = ""
 
   // Create an evenlistener for cardOne so that we can set the value of planSelected
   cardOne.addEventListener("click", () =>{
