@@ -83,7 +83,7 @@ selection.addEventListener("click", function selectPlan() {
   cardOne.addEventListener("click", () =>{
     // planSelected = document.getElementById("Arcade")
     planSelected = "Arcade"
-    console.log(planSelected)
+    
   })
 
   // apprnd the cardone to the planCon
@@ -103,6 +103,13 @@ selection.addEventListener("click", function selectPlan() {
   cardTwo.appendChild(priceTwo);
   // give the second selection an id
   cardTwo.id = "Advanced"
+
+  // Create an evenlistener for cardTwo so that we can set the value of planSelected
+  cardTwo.addEventListener("click", () =>{
+    // planSelected = document.getElementById("Arcade")
+    planSelected = "Advanced"
+    
+  })
 
   // append the cardTwo to the planCon
   planCon.appendChild(cardTwo);
@@ -124,6 +131,13 @@ selection.addEventListener("click", function selectPlan() {
 
   // apprnd the cardone to the planCon
   planCon.appendChild(cardThree);
+
+  // Create an evenlistener for cardThree so that we can set the value of planSelected
+  cardThree.addEventListener("click", () =>{
+    // planSelected = document.getElementById("Arcade")
+    planSelected = "Pro"
+    
+  })
 
 
 
@@ -316,6 +330,12 @@ addOn.addEventListener("click", () => {
 let hasSummaryEventOccurred = false
 
 summary.addEventListener("click", () => {
+
+
+    // creating the div for the total cost 
+    let costCon = document.createElement('div')
+    costCon.className = "cost-con"
+    
     if (!hasSummaryEventOccurred){
     addOnCon.className = "remove-addon-visibility";
     infoSection.className = "remove-info-visibility";
@@ -336,18 +356,26 @@ summary.addEventListener("click", () => {
     summaryPara.className = "summary-para"
     summaryCon.appendChild(summaryPara)
 
-    // creating the div for the total cost 
-      let costCon = document.createElement('div')
-      costCon.className = "cost-con"
+    // // creating the div for the total cost 
+    //   let costCon = document.createElement('div')
+    //   costCon.className = "cost-con"
       summaryCon.appendChild(costCon)
 
-
-
+      // // create the heading dispalying the plan seleccted
+      // currentPlan = document.createElement("h5");
+      // currentPlan.textContent = planSelected;
+      // costCon.appendChild(currentPlan)
 
     hasSummaryEventOccurred = true
   
-   
+   console.log(planSelected)
 }
+
+ // create the heading dispalying the plan seleccted
+ currentPlan = document.createElement("h5");
+ currentPlan.textContent = planSelected;
+ costCon.appendChild(currentPlan)
+
 if(hasSummaryEventOccurred){
   addOnCon.className = "remove-addon-visibility";
 infoSection.className = "remove-info-visibility";
@@ -355,3 +383,7 @@ selectionCon.className = "remove-selection-visibility";
 summaryCon.className = "add-addon-visibility"
 }
 })
+
+  summary.addEventListener("click", () =>{
+
+  })
