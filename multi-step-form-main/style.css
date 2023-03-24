@@ -209,3 +209,22 @@ main{
     padding: 10px;
     margin-top: 40px;
 }
+
+.plan-info{
+    display: flex;
+    padding: 10px;
+}
+
+.plan-setting h5{
+    line-height: 25px;
+    margin: 0;
+}
+
+.plan-setting p{
+    line-height: 0px;
+    margin: 0;
+}
+
+.plan-setting{
+    margin-right: auto;
+}

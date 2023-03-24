@@ -10,6 +10,15 @@ const container = document.getElementById("form-area");
 
 const infoSection = document.getElementById("info-section");
 
+const state = {
+  plan: "",
+  email: "",
+  phoneNumber: "",
+  fullName: "",
+  addons: [],
+  planCost: ""
+}
+
 // create container for the slelction section
 const selectionCon = document.createElement("div");
 
@@ -18,7 +27,7 @@ const addOnCon = document.createElement("div");
 const summaryCon = document.createElement("div");
 
 // create a variable to store the selected plan so that we can use the value in the summary
-let planSelected = "";
+// let state.plan = "";
 
 info.addEventListener("click", () => {
   infoSection.className = "add-info-visibility";
@@ -72,13 +81,14 @@ selection.addEventListener("click", function selectPlan() {
     cardOne.appendChild(priceOne);
     // give the first selection an id
     cardOne.id = "Arcade";
-    planSelected = "";
+    state.plan = "";
 
-    // Create an evenlistener for cardOne so that we can set the value of planSelected
+    // Create an evenlistener for cardOne so that we can set the value of state.plan
     cardOne.addEventListener("click", () => {
-      // planSelected = document.getElementById("Arcade")
+      // state.plan = document.getElementById("Arcade")
       console.log("hey");
-      planSelected = "Arcade";
+      state.plan = "Arcade";
+      state.planCost = "$9"
     });
 
     // apprnd the cardone to the planCon
@@ -99,11 +109,12 @@ selection.addEventListener("click", function selectPlan() {
     // give the second selection an id
     cardTwo.id = "Advanced";
 
-    // Create an evenlistener for cardTwo so that we can set the value of planSelected
+    // Create an evenlistener for cardTwo so that we can set the value of state.plan
     cardTwo.addEventListener("click", () => {
-      // planSelected = document.getElementById("Arcade")
+      // state.plan = document.getElementById("Arcade")
       console.log("hi");
-      planSelected = "Advanced";
+      state.plan = "Advanced";
+      state.planCost = "$12"
     });
 
     // append the cardTwo to the planCon
@@ -127,11 +138,10 @@ selection.addEventListener("click", function selectPlan() {
     // apprnd the cardone to the planCon
     planCon.appendChild(cardThree);
 
-    // Create an evenlistener for cardThree so that we can set the value of planSelected
+    // Create an evenlistener for cardThree so that we can set the value of state.plan
     cardThree.addEventListener("click", () => {
-      // planSelected = document.getElementById("Arcade")
-      console.log("hello");
-      planSelected = "Pro";
+      state.plan = "Pro";
+      state.planCost = "$15"
     });
 
     // create the monthly/yearly subscribtion section
@@ -307,7 +317,7 @@ addOn.addEventListener("click", () => {
 summary.addEventListener("click", () => {
   //    // create the heading dispalying the plan seleccted
   // let currentPlan = document.createElement("h5");
-  // currentPlan.textContent = planSelected;
+  // currentPlan.textContent = state.plan;
 
   addOnCon.className = "remove-addon-visibility";
   infoSection.className = "remove-info-visibility";
@@ -337,18 +347,42 @@ summary.addEventListener("click", () => {
   let costCon = document.createElement("div");
   costCon.className = "cost-con";
   summaryCon.appendChild(costCon);
-  // costCon.appendChild(currentPlan)
+
+  //  create a container for the planinfo
+  let planInfo = document.createElement("div");
+  planInfo.className = "plan-info"
+  costCon.appendChild(planInfo)
+
+  // create a container for the plan setting
+  let planSetting = document.createElement("div");
+  planSetting.className = "plan-setting"
+  planInfo.appendChild(planSetting)
+
 
   // create the heading dispalying the plan seleccted
-  console.log(planSelected, "hi");
+  console.log(state.plan, "hi");
   currentPlan = document.createElement("h5");
-  currentPlan.textContent = planSelected;
-  costCon.appendChild(currentPlan);
+  currentPlan.className = "current-plan"
+  currentPlan.textContent = state.plan;
+  planSetting.appendChild(currentPlan);
+
+  // Create the link to change the plan
+  let changePlan = document.createElement("p");
+  changePlan.textContent = "change"
+  changePlan.className = "change-plan"
+  planSetting.appendChild(changePlan)
+
+  // create a heading to display the price
+  let planPrice = document.createElement("h5");
+  planPrice.textContent = state.planCost
+  planInfo.appendChild(planPrice)
 
 
-  console.log(planSelected);
 
-  // console.log(planSelected)
+
+  console.log(state.plan);
+
+  // console.log(state.plan)
 
   addOnCon.className = "remove-addon-visibility";
   infoSection.className = "remove-info-visibility";
