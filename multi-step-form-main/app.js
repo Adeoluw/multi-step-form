@@ -437,7 +437,9 @@ costCon.appendChild(addOnInfo);
 
 // create a for loop to create the elements for the array
 for(let i = 0; i < state.addons.length; i++){
-  let 
+  let listOfAddons = document.createElement("p");
+  listOfAddons.textContent = state.addons[i];
+  costCon.appendChild(listOfAddons)
 } 
 
   console.log(state.plan);
