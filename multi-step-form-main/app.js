@@ -213,6 +213,23 @@ addOn.addEventListener("click", () => {
     cardOne.appendChild(firstCheckBox);
     firstCheckBox.className = "checkBox";
 
+    // Add an eventlister to the checkbox and add value to the addons array
+    firstCheckBox.addEventListener("change", () =>{
+      if(firstCheckBox.checked){
+        state.addons.push("online service")
+      }else{
+        for (let i = 0; i < state.addons.length; i++) {
+          if (state.addons[i] === "online service") {
+            state.addons.splice(state.addons.indexOf("online service"), 1)
+          }
+          
+        }
+      }
+      console.log(state.addons)
+
+    })
+
+
     // Create the text component for the first addOn
     let firstAddOnTexts = document.createElement("div");
     firstAddOnTexts.className = "addon-texts";
@@ -245,6 +262,21 @@ addOn.addEventListener("click", () => {
     cardTwo.appendChild(secondCheckBox);
     secondCheckBox.className = "checkBox";
 
+// Add an eventlister to the checkbox and add value to the addons array
+secondCheckBox.addEventListener("change", () =>{
+  if(secondCheckBox.checked){
+    state.addons.push("Larger storage")
+  }else{
+    for (let i = 0; i < state.addons.length; i++) {
+      if (state.addons[i] === "Larger storage") {
+        state.addons.splice(state.addons.indexOf("Larger storage"), 1)
+      }
+      
+    }
+  }
+  console.log(state.addons)
+
+})
     // Create the text component for the second addOn
     let secondAddOnTexts = document.createElement("div");
     secondAddOnTexts.className = "addon-texts";
@@ -278,6 +310,22 @@ addOn.addEventListener("click", () => {
 
     cardThree.appendChild(thirdCheckBox);
 
+    // Add an eventlister to the checkbox and add value to the addons array
+thirdCheckBox.addEventListener("change", () =>{
+  if(thirdCheckBox.checked){
+    state.addons.push("Customizable profile")
+  }else{
+    for (let i = 0; i < state.addons.length; i++) {
+      if (state.addons[i] === "Customizable profile") {
+        state.addons.splice(state.addons.indexOf("Customizable profile"), 1)
+      }
+      
+    }
+  }
+  console.log(state.addons)
+
+})
+
     // Create the text component for the third addOn
     let thirdAddOnTexts = document.createElement("div");
     thirdAddOnTexts.className = "addon-texts";
@@ -285,12 +333,12 @@ addOn.addEventListener("click", () => {
 
     // Create the heading for the third card
     let thirdAddOnHead = document.createElement("h4");
-    thirdAddOnHead.textContent = "Larger storage";
+    thirdAddOnHead.textContent = "Customizable profile";
     thirdAddOnTexts.appendChild(thirdAddOnHead);
 
     // create the paragraph for the third addOn
     let thirdAddOnPara = document.createElement("p");
-    thirdAddOnPara.textContent = "Extra 1TB of cloud save";
+    thirdAddOnPara.textContent = "custom theme on your profile";
     thirdAddOnTexts.appendChild(thirdAddOnPara);
 
     // create the price for the third addOn card
@@ -377,8 +425,20 @@ summary.addEventListener("click", () => {
   planPrice.textContent = state.planCost
   planInfo.appendChild(planPrice)
 
+// create an horizontal line seperating the selected plan from the addons
+let horizontalLine = document.createElement("hr");
+horizontalLine.className = "horizontal-line"
+costCon.appendChild(horizontalLine);
+
+// create a container for the addon info
+let addOnInfo = document.createElement("div");
+costCon.appendChild(addOnInfo);
 
 
+// create a for loop to create the elements for the array
+for(let i = 0; i < state.addons.length; i++){
+  let 
+} 
 
   console.log(state.plan);
 
