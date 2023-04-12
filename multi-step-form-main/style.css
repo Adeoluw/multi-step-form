@@ -156,8 +156,8 @@ main{
 
 
 .plan-containers{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto auto;
     width: 500px;
 }
 
@@ -263,4 +263,16 @@ main{
     line-height: 0px;
     height: 30px;
     color: hsl(231, 11%, 63%);
+}
+
+.next-prev-con{
+    margin-top: 30px;
+}
+
+.previous{
+    margin-left: auto;
+}
+
+.next{
+    
 }

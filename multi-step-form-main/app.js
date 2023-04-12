@@ -161,6 +161,24 @@ selection.addEventListener("click", function selectPlan() {
     subscribtion.appendChild(subType);
     selectionCon.appendChild(subscribtion);
 
+
+       // create div for the next and previous nav
+    let nextPrev = document.createElement("div");
+    nextPrev.className = "next-prev-con";
+    planCon.appendChild(nextPrev)
+
+     // create the previous button
+  let previousButton = document.createElement("button");
+  previousButton.className = "previous"
+  previousButton.textContent = "Go Back"
+  nextPrev.appendChild(previousButton)
+
+    // create the next button
+    let nextButton = document.createElement("button");
+    nextButton.className = "next"
+    nextButton.textContent = "Next Step"
+    nextPrev.appendChild(nextButton)
+
     hasSelectionEventOccurred = true;
   }
 
@@ -462,11 +480,11 @@ addOnInfo.className = "addon-info"
 costCon.appendChild(addOnInfo);
 
 
-// create a for loop to create the elements for the array
 for(let i = 0; i < state.addons.length; i++){
   let listOfAddons = document.createElement("h5");
 
   listOfAddons.textContent = state.addons[i];
+  costCon.appendChild(listOfAddons)
 
 
 // create a div for the current addOn
@@ -481,13 +499,6 @@ addOnInfo.appendChild(currentAddOn)
   currentAddOn.appendChild(priceOfAddOn)
   priceOfAddOn.className = "addon-price"
 } 
-
-// for (let i = 0; i < state.addOnCost.length; i++) {
-//   let priceOfAddOn = document.createElement("h4")
-//   priceOfAddOn.textContent = state.addOnCost[i];
-//   addOnInfo.appendChild(priceOfAddOn)
-//   priceOfAddOn.className = "addon-price"
-// }
 
   console.log(state.plan);
 
