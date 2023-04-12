@@ -16,6 +16,7 @@ const state = {
   phoneNumber: "",
   fullName: "",
   addons: [],
+  addOnCost: [],
   planCost: ""
 }
 
@@ -217,6 +218,7 @@ addOn.addEventListener("click", () => {
     firstCheckBox.addEventListener("change", () =>{
       if(firstCheckBox.checked){
         state.addons.push("online service")
+        state.addOnCost.push("+$1/mo")
       }else{
         for (let i = 0; i < state.addons.length; i++) {
           if (state.addons[i] === "online service") {
@@ -224,8 +226,16 @@ addOn.addEventListener("click", () => {
           }
           
         }
+
+        for (let i = 0; i < state.addOnCost.length; i++) {
+          if (state.addOnCost[i] === "+$1/mo") {
+            state.addOnCost.splice(state.addOnCost.indexOf("+$1/mo"), 1)
+          }
+          
+        }
       }
       console.log(state.addons)
+      console.log(state.addOnCost)
 
     })
 
@@ -266,17 +276,24 @@ addOn.addEventListener("click", () => {
 secondCheckBox.addEventListener("change", () =>{
   if(secondCheckBox.checked){
     state.addons.push("Larger storage")
+    state.addOnCost.push("+$2/mo")
   }else{
     for (let i = 0; i < state.addons.length; i++) {
       if (state.addons[i] === "Larger storage") {
         state.addons.splice(state.addons.indexOf("Larger storage"), 1)
       }
-      
-    }
+    
+    for (let i = 0; i < state.addOnCost.length; i++) {
+      if (state.addOnCost[i] === "+$2/mo") {
+        state.addOnCost.splice(state.addOnCost.indexOf("+$2/mo"), 1)
+      }
+    }}
   }
   console.log(state.addons)
+  console.log(state.addOnCost)
 
 })
+
     // Create the text component for the second addOn
     let secondAddOnTexts = document.createElement("div");
     secondAddOnTexts.className = "addon-texts";
@@ -314,6 +331,7 @@ secondCheckBox.addEventListener("change", () =>{
 thirdCheckBox.addEventListener("change", () =>{
   if(thirdCheckBox.checked){
     state.addons.push("Customizable profile")
+    state.addOnCost.push("+$2/mo")
   }else{
     for (let i = 0; i < state.addons.length; i++) {
       if (state.addons[i] === "Customizable profile") {
@@ -321,8 +339,16 @@ thirdCheckBox.addEventListener("change", () =>{
       }
       
     }
+
+    for (let i = 0; i < state.addOnCost.length; i++) {
+      if (state.addOnCost[i] === "+$2/mo") {
+        state.addOnCost.splice(state.addOnCost.indexOf("Customizable profile"), 1)
+      }
+      
+    }
   }
   console.log(state.addons)
+  console.log(state.addOnCost)
 
 })
 
@@ -432,15 +458,36 @@ costCon.appendChild(horizontalLine);
 
 // create a container for the addon info
 let addOnInfo = document.createElement("div");
+addOnInfo.className = "addon-info"
 costCon.appendChild(addOnInfo);
 
 
 // create a for loop to create the elements for the array
 for(let i = 0; i < state.addons.length; i++){
-  let listOfAddons = document.createElement("p");
+  let listOfAddons = document.createElement("h5");
+
   listOfAddons.textContent = state.addons[i];
-  costCon.appendChild(listOfAddons)
+
+
+// create a div for the current addOn
+let currentAddOn = document.createElement("div");
+currentAddOn.className = "current-addon"
+currentAddOn.appendChild(listOfAddons)
+addOnInfo.appendChild(currentAddOn)
+
+
+  let priceOfAddOn = document.createElement("h5")
+  priceOfAddOn.textContent = state.addOnCost[i];
+  currentAddOn.appendChild(priceOfAddOn)
+  priceOfAddOn.className = "addon-price"
 } 
+
+// for (let i = 0; i < state.addOnCost.length; i++) {
+//   let priceOfAddOn = document.createElement("h4")
+//   priceOfAddOn.textContent = state.addOnCost[i];
+//   addOnInfo.appendChild(priceOfAddOn)
+//   priceOfAddOn.className = "addon-price"
+// }
 
   console.log(state.plan);
 
