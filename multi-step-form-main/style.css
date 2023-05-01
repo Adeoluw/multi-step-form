@@ -303,3 +303,7 @@ main{
     color: white;
     cursor: pointer;
 }
+
+.personal-info-button{
+    margin-top: 30px;
+}
